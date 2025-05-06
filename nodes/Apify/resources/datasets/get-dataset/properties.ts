@@ -13,60 +13,61 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
 export const properties: INodeProperties[] = [
-  {
-    displayName: 'GET /v2/datasets/{datasetId}',
-    name: 'operation',
-    type: 'notice',
-    typeOptions: {
-      theme: 'info',
-    },
-    default: '',
-    displayOptions: {
-      show: {
-        resource: ['Datasets'],
-        operation: ['Get dataset'],
-      },
-    },
-  },
-  {
-    displayName: 'Dataset Id',
-    name: 'datasetId',
-    required: true,
-    description: 'Dataset ID or `username~dataset-name`.',
-    default: 'WkzbQMuFYuamGv3YF',
-    type: 'string',
-    displayOptions: {
-      show: {
-        resource: ['Datasets'],
-        operation: ['Get dataset'],
-      },
-    },
-  },
-  {
-    displayName: 'Token',
-    name: 'token',
-    description:
-      'API authentication token. It is required only when using the `username~dataset-name` format for `datasetId`.\n',
-    default: 'soSkq9ekdmfOslopH',
-    type: 'string',
-    routing: {
-      request: {
-        qs: {
-          token: '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      show: {
-        resource: ['Datasets'],
-        operation: ['Get dataset'],
-      },
-    },
-  },
-]
+	{
+		displayName: 'GET /v2/datasets/{datasetId}',
+		name: 'operation',
+		type: 'notice',
+		typeOptions: {
+			theme: 'info',
+		},
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['Datasets'],
+				operation: ['Get dataset'],
+			},
+		},
+	},
+	{
+		displayName: 'Dataset Id',
+		name: 'datasetId',
+		required: true,
+		description: 'Dataset ID or `username~dataset-name`',
+		default: 'WkzbQMuFYuamGv3YF',
+		type: 'string',
+		displayOptions: {
+			show: {
+				resource: ['Datasets'],
+				operation: ['Get dataset'],
+			},
+		},
+	},
+	{
+		displayName: 'Token',
+		name: 'token',
+		description:
+			'API authentication token. It is required only when using the `username~dataset-name` format for `datasetId`.',
+		default: 'soSkq9ekdmfOslopH',
+		type: 'string',
+		typeOptions: { password: true },
+		routing: {
+			request: {
+				qs: {
+					token: '={{ $value }}',
+				},
+			},
+		},
+		displayOptions: {
+			show: {
+				resource: ['Datasets'],
+				operation: ['Get dataset'],
+			},
+		},
+	},
+];

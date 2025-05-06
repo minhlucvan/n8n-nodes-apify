@@ -13,119 +13,115 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
 export const properties: INodeProperties[] = [
-  {
-    displayName: 'POST /v2/actor-tasks',
-    name: 'operation',
-    type: 'notice',
-    typeOptions: {
-      theme: 'info',
-    },
-    default: '',
-    displayOptions: {
-      show: {
-        resource: ['Actor tasks'],
-        operation: ['Create task'],
-      },
-    },
-  },
-  {
-    displayName: 'Act Id',
-    required: true,
-    name: 'actId',
-    type: 'string',
-    default: 'asADASadYvn4mBZmm',
-    description: '',
-    routing: {
-      request: {
-        body: {
-          actId: '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      hide: {
-        useCustomBody: [true],
-      },
-      show: {
-        resource: ['Actor tasks'],
-        operation: ['Create task'],
-      },
-    },
-  },
-  {
-    displayName: 'Name',
-    required: true,
-    name: 'name',
-    type: 'string',
-    default: 'my-task',
-    description: '',
-    routing: {
-      request: {
-        body: {
-          name: '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      hide: {
-        useCustomBody: [true],
-      },
-      show: {
-        resource: ['Actor tasks'],
-        operation: ['Create task'],
-      },
-    },
-  },
-  {
-    displayName: 'Options',
-    name: 'options',
-    type: 'string',
-    default: '',
-    description: '',
-    routing: {
-      request: {
-        body: {
-          options: '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      hide: {
-        useCustomBody: [true],
-      },
-      show: {
-        resource: ['Actor tasks'],
-        operation: ['Create task'],
-      },
-    },
-  },
-  {
-    displayName: 'Input',
-    name: 'input',
-    type: 'string',
-    default: '',
-    description: '',
-    routing: {
-      request: {
-        body: {
-          input: '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      hide: {
-        useCustomBody: [true],
-      },
-      show: {
-        resource: ['Actor tasks'],
-        operation: ['Create task'],
-      },
-    },
-  },
-]
+	{
+		displayName: 'POST /v2/actor-tasks',
+		name: 'operation',
+		type: 'notice',
+		typeOptions: {
+			theme: 'info',
+		},
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['Actor tasks'],
+				operation: ['Create task'],
+			},
+		},
+	},
+	{
+		displayName: 'Act Id',
+		required: true,
+		name: 'actId',
+		type: 'string',
+		default: 'asADASadYvn4mBZmm',
+		routing: {
+			request: {
+				body: {
+					actId: '={{ $value }}',
+				},
+			},
+		},
+		displayOptions: {
+			hide: {
+				useCustomBody: [true],
+			},
+			show: {
+				resource: ['Actor tasks'],
+				operation: ['Create task'],
+			},
+		},
+	},
+	{
+		displayName: 'Name',
+		required: true,
+		name: 'name',
+		type: 'string',
+		default: 'my-task',
+		routing: {
+			request: {
+				body: {
+					name: '={{ $value }}',
+				},
+			},
+		},
+		displayOptions: {
+			hide: {
+				useCustomBody: [true],
+			},
+			show: {
+				resource: ['Actor tasks'],
+				operation: ['Create task'],
+			},
+		},
+	},
+	{
+		displayName: 'Options',
+		name: 'options',
+		type: 'string',
+		default: '',
+		routing: {
+			request: {
+				body: {
+					options: '={{ $value }}',
+				},
+			},
+		},
+		displayOptions: {
+			hide: {
+				useCustomBody: [true],
+			},
+			show: {
+				resource: ['Actor tasks'],
+				operation: ['Create task'],
+			},
+		},
+	},
+	{
+		displayName: 'Input',
+		name: 'input',
+		type: 'string',
+		default: '',
+		routing: {
+			request: {
+				body: {
+					input: '={{ $value }}',
+				},
+			},
+		},
+		displayOptions: {
+			hide: {
+				useCustomBody: [true],
+			},
+			show: {
+				resource: ['Actor tasks'],
+				operation: ['Create task'],
+			},
+		},
+	},
+];

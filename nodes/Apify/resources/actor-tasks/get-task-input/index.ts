@@ -13,29 +13,29 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodePropertyOptions } from 'n8n-workflow'
+import { INodePropertyOptions } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
-import { properties as rawProperties } from './properties'
-import { runHooks } from './hooks'
+import { properties as rawProperties } from './properties';
+import { runHooks } from './hooks';
 
-export const name = 'Get task input'
+export const name = 'Get task input';
 
 const rawOption: INodePropertyOptions = {
-  name: 'Get task input',
-  value: 'Get task input',
-  action: 'Get task input',
-  description: 'Returns the input of a given task',
-  routing: {
-    request: {
-      method: 'GET',
-      url: '=/v2/actor-tasks/{{$parameter["actorTaskId"]}}/input',
-    },
-  },
-}
+	name: 'Get Task Input',
+	value: 'Get task input',
+	action: 'Get task input',
+	description: 'Returns the input of a given task',
+	routing: {
+		request: {
+			method: 'GET',
+			url: '=/v2/actor-tasks/{{$parameter["actorTaskId"]}}/input',
+		},
+	},
+};
 
-const { properties, option } = runHooks(rawOption, rawProperties)
+const { properties, option } = runHooks(rawOption, rawProperties);
 
-export { option, properties }
+export { option, properties };

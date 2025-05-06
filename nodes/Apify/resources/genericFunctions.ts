@@ -7,7 +7,6 @@ import type {
 	IRequestOptions,
 } from 'n8n-workflow';
 
-
 /**
  * Make an API request to Trello
  *
@@ -76,7 +75,6 @@ export async function apiRequestAllItems(
 		// }
 
 		returnData.push(responseData);
-
 	} while (query.limit <= responseData.length);
 
 	const combinedData = {
@@ -87,7 +85,7 @@ export async function apiRequestAllItems(
 			limit: 0,
 			desc: false,
 			items: [] as IDataObject[],
-		}
+		},
 	};
 
 	// returnData [
@@ -103,16 +101,22 @@ export async function apiRequestAllItems(
 	// 	}
 	// ]
 
-
 	for (const result of returnData) {
-
 		combinedData.data.total += typeof result.total === 'number' ? result.total : 0;
 		combinedData.data.count += typeof result.count === 'number' ? result.count : 0;
 		combinedData.data.offset += typeof result.offset === 'number' ? result.offset : 0;
 		combinedData.data.limit += typeof result.limit === 'number' ? result.limit : 0;
 
-		if (result.data && typeof result.data === 'object' && 'items' in result.data && Array.isArray((result.data as IDataObject).items)) {
-			combinedData.data.items = [...combinedData.data.items, ...(result.data.items as IDataObject[])];
+		if (
+			result.data &&
+			typeof result.data === 'object' &&
+			'items' in result.data &&
+			Array.isArray((result.data as IDataObject).items)
+		) {
+			combinedData.data.items = [
+				...combinedData.data.items,
+				...(result.data.items as IDataObject[]),
+			];
 		}
 	}
 

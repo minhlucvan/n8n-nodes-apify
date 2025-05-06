@@ -13,75 +13,73 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
 export const properties: INodeProperties[] = [
-  {
-    displayName: 'POST /v2/datasets/{datasetId}/items',
-    name: 'operation',
-    type: 'notice',
-    typeOptions: {
-      theme: 'info',
-    },
-    default: '',
-    displayOptions: {
-      show: {
-        resource: ['Datasets'],
-        operation: ['Put items'],
-      },
-    },
-  },
-  {
-    displayName: 'Dataset Id',
-    name: 'datasetId',
-    required: true,
-    description: 'Dataset ID or `username~dataset-name`.',
-    default: 'WkzbQMuFYuamGv3YF',
-    type: 'string',
-    displayOptions: {
-      show: {
-        resource: ['Datasets'],
-        operation: ['Put items'],
-      },
-    },
-  },
-  {
-    displayName: 'Body',
-    name: 'body',
-    type: 'fixedCollection',
-    default: {},
-    description: '',
-    options: [
-      {
-        displayName: 'Items',
-        name: 'items',
-        values: [
-          {
-            displayName: 'Foo',
-            type: 'string',
-            default: '',
-            description: '',
-            name: 'foo',
-          },
-        ],
-      },
-    ],
-    routing: {
-      request: {
-        body: '={{ JSON.parse($value) }}',
-      },
-    },
-    displayOptions: {
-      hide: {
-        useCustomBody: [true],
-      },
-      show: {
-        resource: ['Datasets'],
-        operation: ['Put items'],
-      },
-    },
-  },
-]
+	{
+		displayName: 'POST /v2/datasets/{datasetId}/items',
+		name: 'operation',
+		type: 'notice',
+		typeOptions: {
+			theme: 'info',
+		},
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['Datasets'],
+				operation: ['Put items'],
+			},
+		},
+	},
+	{
+		displayName: 'Dataset Id',
+		name: 'datasetId',
+		required: true,
+		description: 'Dataset ID or `username~dataset-name`',
+		default: 'WkzbQMuFYuamGv3YF',
+		type: 'string',
+		displayOptions: {
+			show: {
+				resource: ['Datasets'],
+				operation: ['Put items'],
+			},
+		},
+	},
+	{
+		displayName: 'Body',
+		name: 'body',
+		type: 'fixedCollection',
+		default: {},
+		options: [
+			{
+				displayName: 'Items',
+				name: 'items',
+				values: [
+					{
+						displayName: 'Foo',
+						type: 'string',
+						default: '',
+						name: 'foo',
+					},
+				],
+			},
+		],
+		routing: {
+			request: {
+				body: '={{ JSON.parse($value) }}',
+			},
+		},
+		displayOptions: {
+			hide: {
+				useCustomBody: [true],
+			},
+			show: {
+				resource: ['Datasets'],
+				operation: ['Put items'],
+			},
+		},
+	},
+];

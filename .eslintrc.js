@@ -18,7 +18,22 @@ module.exports = {
 		extraFileExtensions: ['.json'],
 	},
 
-	ignorePatterns: ['.eslintrc.js', '**/*.js', '**/node_modules/**', '**/dist/**'],
+	ignorePatterns: [
+		'.eslintrc.js',
+		'**/*.js',
+		'**/package.json',
+		'**/node_modules/**',
+		'**/dist/**',
+	],
+
+	plugins: ['@stylistic'],
+	rules: {
+		'@stylistic/quotes': [
+			'error',
+			'single',
+			{ allowTemplateLiterals: 'always', ignoreStringLiterals: true },
+		],
+	},
 
 	overrides: [
 		{

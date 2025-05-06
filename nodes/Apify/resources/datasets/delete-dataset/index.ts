@@ -13,39 +13,39 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodePropertyOptions } from 'n8n-workflow'
+import { INodePropertyOptions } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
-import { properties as rawProperties } from './properties'
-import { runHooks } from './hooks'
+import { properties as rawProperties } from './properties';
+import { runHooks } from './hooks';
 
-export const name = 'Delete dataset'
+export const name = 'Delete dataset';
 
 const rawOption: INodePropertyOptions = {
-  name: 'Delete dataset',
-  value: 'Delete dataset',
-  action: 'Delete dataset',
-  description: 'Deletes a specific dataset',
-  routing: {
-    request: {
-      method: 'DELETE',
-      url: '=/v2/datasets/{{$parameter["datasetId"]}}',
-    },
-    output: {
-      postReceive: [
-        {
-          type: 'setKeyValue',
-          properties: {
-            data: '={{$response.body}}',
-          },
-        },
-      ],
-    },
-  },
-}
+	name: 'Delete Dataset',
+	value: 'Delete dataset',
+	action: 'Delete dataset',
+	description: 'Deletes a specific dataset',
+	routing: {
+		request: {
+			method: 'DELETE',
+			url: '=/v2/datasets/{{$parameter["datasetId"]}}',
+		},
+		output: {
+			postReceive: [
+				{
+					type: 'setKeyValue',
+					properties: {
+						data: '={{$response.body}}',
+					},
+				},
+			],
+		},
+	},
+};
 
-const { properties, option } = runHooks(rawOption, rawProperties)
+const { properties, option } = runHooks(rawOption, rawProperties);
 
-export { option, properties }
+export { option, properties };

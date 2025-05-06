@@ -13,29 +13,29 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodePropertyOptions } from 'n8n-workflow'
+import { INodePropertyOptions } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
-import { properties as rawProperties } from './properties'
-import { runHooks } from './hooks'
+import { properties as rawProperties } from './properties';
+import { runHooks } from './hooks';
 
-export const name = 'Delete actor'
+export const name = 'Delete actor';
 
 const rawOption: INodePropertyOptions = {
-  name: 'Delete actor',
-  value: 'Delete actor',
-  action: 'Delete actor',
-  description: 'Deletes an Actor',
-  routing: {
-    request: {
-      method: 'DELETE',
-      url: '=/v2/acts/{{$parameter["actorId"]}}',
-    },
-  },
-}
+	name: 'Delete actor',
+	value: 'Delete actor',
+	action: 'Delete actor',
+	description: 'Deletes an Actor',
+	routing: {
+		request: {
+			method: 'DELETE',
+			url: '=/v2/acts/{{$parameter["actorId"]}}',
+		},
+	},
+};
 
-const { properties, option } = runHooks(rawOption, rawProperties)
+const { properties, option } = runHooks(rawOption, rawProperties);
 
-export { option, properties }
+export { option, properties };

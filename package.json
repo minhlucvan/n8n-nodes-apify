@@ -1,65 +1,68 @@
 {
-  "name": "n8n-nodes-apify",
-  "version": "0.1.0",
-  "description": "n8n nodes for Apify",
-  "keywords": [
-    "n8n-community-node-package",
-    "n8n-nodes",
-    "n8n",
-    "apify",
-    "apify-node",
-    "apify-nodes"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/minhlucvan/n8n-nodes-apify",
-  "author": {
-    "name": "Minh Luc Van",
-    "email": "luk.mink@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/minhlucvan/n8n-nodes-apify.git"
-  },
-  "engines": {
-    "node": ">=18.10",
-    "pnpm": ">=9.1"
-  },
-  "packageManager": "pnpm@9.1.4",
-  "main": "index.js",
-  "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "build": "tsc && gulp build:icons",
-    "dev": "tsc --watch",
-    "format": "prettier nodes credentials --write",
-    "lint": "eslint nodes credentials package.json",
-    "lintfix": "eslint nodes credentials package.json --fix",
-    "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials package.json",
-    "merge:api": "npx openapi-merge-cli --config ./openapi.config.json",
-    "p2o": "p2o ./collection.json -f ./openapi.yml",
-    "codegen": "create-n8n-nodes generate -o . -c nodes.config.js -a ./openapi.yml -t ../../templates/n8n-nodes"
-  },
-  "files": [
-    "dist"
-  ],
-  "n8n": {
-    "n8nNodesApiVersion": 1,
-    "credentials": [
-      "dist/credentials/ApifyApi.credentials.js"
-    ],
-    "nodes": [
-      "dist/nodes/Apify/Apify.node.js"
-    ]
-  },
-  "devDependencies": {
-    "@typescript-eslint/parser": "^7.15.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-n8n-nodes-base": "^1.16.1",
-    "gulp": "^4.0.2",
-    "n8n-workflow": "*",
-    "prettier": "^3.3.2",
-    "typescript": "^5.5.3"
-  },
-  "peerDependencies": {
-    "n8n-workflow": "*"
-  }
+	"name": "n8n-nodes-apify",
+	"version": "0.1.0",
+	"description": "n8n nodes for Apify",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n-nodes",
+		"n8n",
+		"apify",
+		"apify-node",
+		"apify-nodes"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/minhlucvan/n8n-nodes-apify",
+	"author": {
+		"name": "Minh Luc Van",
+		"email": "luk.mink@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/minhlucvan/n8n-nodes-apify.git"
+	},
+	"engines": {
+		"node": ">=18.10",
+		"pnpm": ">=9.1"
+	},
+	"packageManager": "pnpm@9.1.4",
+	"main": "index.js",
+	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"build": "tsc && gulp build:icons",
+		"dev": "tsc --watch",
+		"format": "prettier nodes credentials --write",
+		"lint": "eslint nodes credentials package.json",
+		"lintfix": "eslint nodes credentials package.json --fix",
+		"prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials package.json",
+		"merge:api": "npx openapi-merge-cli --config ./openapi.config.json",
+		"p2o": "p2o ./collection.json -f ./openapi.yml",
+		"codegen": "create-n8n-nodes generate -o . -c nodes.config.js -a ./openapi.yml -t ../../templates/n8n-nodes"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/ApifyApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Apify/Apify.node.js"
+		]
+	},
+	"devDependencies": {
+		"@stylistic/eslint-plugin": "^4.2.0",
+		"@typescript-eslint/parser": "^7.15.0",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^10.1.2",
+		"eslint-plugin-n8n-nodes-base": "^1.16.1",
+		"eslint-plugin-prettier": "^5.4.0",
+		"gulp": "^4.0.2",
+		"n8n-workflow": "*",
+		"prettier": "^3.3.2",
+		"typescript": "^5.5.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
 }

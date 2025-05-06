@@ -13,63 +13,62 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
 export const properties: INodeProperties[] = [
-  {
-    displayName: 'PUT /v2/datasets/{datasetId}',
-    name: 'operation',
-    type: 'notice',
-    typeOptions: {
-      theme: 'info',
-    },
-    default: '',
-    displayOptions: {
-      show: {
-        resource: ['Datasets'],
-        operation: ['Update dataset'],
-      },
-    },
-  },
-  {
-    displayName: 'Dataset Id',
-    name: 'datasetId',
-    required: true,
-    description: 'Dataset ID or `username~dataset-name`.',
-    default: 'WkzbQMuFYuamGv3YF',
-    type: 'string',
-    displayOptions: {
-      show: {
-        resource: ['Datasets'],
-        operation: ['Update dataset'],
-      },
-    },
-  },
-  {
-    displayName: 'Name',
-    required: true,
-    name: 'name',
-    type: 'string',
-    default: '',
-    description: '',
-    routing: {
-      request: {
-        body: {
-          name: '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      hide: {
-        useCustomBody: [true],
-      },
-      show: {
-        resource: ['Datasets'],
-        operation: ['Update dataset'],
-      },
-    },
-  },
-]
+	{
+		displayName: 'PUT /v2/datasets/{datasetId}',
+		name: 'operation',
+		type: 'notice',
+		typeOptions: {
+			theme: 'info',
+		},
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['Datasets'],
+				operation: ['Update dataset'],
+			},
+		},
+	},
+	{
+		displayName: 'Dataset Id',
+		name: 'datasetId',
+		required: true,
+		description: 'Dataset ID or `username~dataset-name`',
+		default: 'WkzbQMuFYuamGv3YF',
+		type: 'string',
+		displayOptions: {
+			show: {
+				resource: ['Datasets'],
+				operation: ['Update dataset'],
+			},
+		},
+	},
+	{
+		displayName: 'Name',
+		required: true,
+		name: 'name',
+		type: 'string',
+		default: '',
+		routing: {
+			request: {
+				body: {
+					name: '={{ $value }}',
+				},
+			},
+		},
+		displayOptions: {
+			hide: {
+				useCustomBody: [true],
+			},
+			show: {
+				resource: ['Datasets'],
+				operation: ['Update dataset'],
+			},
+		},
+	},
+];

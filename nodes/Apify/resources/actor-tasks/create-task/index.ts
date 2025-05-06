@@ -13,30 +13,30 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodePropertyOptions } from 'n8n-workflow'
+import { INodePropertyOptions } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
-import { properties as rawProperties } from './properties'
-import { runHooks } from './hooks'
+import { properties as rawProperties } from './properties';
+import { runHooks } from './hooks';
 
-export const name = 'Create task'
+export const name = 'Create task';
 
 const rawOption: INodePropertyOptions = {
-  name: 'Create task',
-  value: 'Create task',
-  action: 'Create task',
-  description:
-    'Create a new task with settings specified by the object passed as JSON in the POST payload  The response is the full task object as returned by the Get task endpoint  The request needs to specify the Content Type  application json HTTP header  When providing your API authentication token  we recommend using the request s Authorization header  rather than the URL   More info',
-  routing: {
-    request: {
-      method: 'POST',
-      url: '=/v2/actor-tasks',
-    },
-  },
-}
+	name: 'Create Task',
+	value: 'Create task',
+	action: 'Create task',
+	description:
+		'Create a new task with settings specified by the object passed as JSON in the POST payload The response is the full task object as returned by the Get task endpoint The request needs to specify the Content Type application JSON HTTP header When providing your API authentication token we recommend using the request s Authorization header rather than the URL More info',
+	routing: {
+		request: {
+			method: 'POST',
+			url: '=/v2/actor-tasks',
+		},
+	},
+};
 
-const { properties, option } = runHooks(rawOption, rawProperties)
+const { properties, option } = runHooks(rawOption, rawProperties);
 
-export { option, properties }
+export { option, properties };

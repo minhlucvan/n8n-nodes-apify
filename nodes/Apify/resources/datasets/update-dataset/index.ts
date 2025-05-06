@@ -13,30 +13,30 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodePropertyOptions } from 'n8n-workflow'
+import { INodePropertyOptions } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
-import { properties as rawProperties } from './properties'
-import { runHooks } from './hooks'
+import { properties as rawProperties } from './properties';
+import { runHooks } from './hooks';
 
-export const name = 'Update dataset'
+export const name = 'Update dataset';
 
 const rawOption: INodePropertyOptions = {
-  name: 'Update dataset',
-  value: 'Update dataset',
-  action: 'Update dataset',
-  description:
-    'Updates a dataset s name using a value specified by a JSON object passed in the PUT payload  The response is the updated dataset object  as returned by the Get dataset API endpoint',
-  routing: {
-    request: {
-      method: 'PUT',
-      url: '=/v2/datasets/{{$parameter["datasetId"]}}',
-    },
-  },
-}
+	name: 'Update Dataset',
+	value: 'Update dataset',
+	action: 'Update dataset',
+	description:
+		'Updates a dataset s name using a value specified by a JSON object passed in the PUT payload The response is the updated dataset object as returned by the Get dataset API endpoint',
+	routing: {
+		request: {
+			method: 'PUT',
+			url: '=/v2/datasets/{{$parameter["datasetId"]}}',
+		},
+	},
+};
 
-const { properties, option } = runHooks(rawOption, rawProperties)
+const { properties, option } = runHooks(rawOption, rawProperties);
 
-export { option, properties }
+export { option, properties };

@@ -13,46 +13,45 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodeProperties } from 'n8n-workflow'
+import { INodeProperties } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
 export const properties: INodeProperties[] = [
-  {
-    displayName: 'POST /v2/datasets',
-    name: 'operation',
-    type: 'notice',
-    typeOptions: {
-      theme: 'info',
-    },
-    default: '',
-    displayOptions: {
-      show: {
-        resource: ['Datasets'],
-        operation: ['Create dataset'],
-      },
-    },
-  },
-  {
-    displayName: 'Name',
-    name: 'name',
-    description:
-      'Custom unique name to easily identify the dataset in the future.',
-    default: 'eshop-items',
-    type: 'string',
-    routing: {
-      request: {
-        qs: {
-          name: '={{ $value }}',
-        },
-      },
-    },
-    displayOptions: {
-      show: {
-        resource: ['Datasets'],
-        operation: ['Create dataset'],
-      },
-    },
-  },
-]
+	{
+		displayName: 'POST /v2/datasets',
+		name: 'operation',
+		type: 'notice',
+		typeOptions: {
+			theme: 'info',
+		},
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['Datasets'],
+				operation: ['Create dataset'],
+			},
+		},
+	},
+	{
+		displayName: 'Name',
+		name: 'name',
+		description: 'Custom unique name to easily identify the dataset in the future',
+		default: 'eshop-items',
+		type: 'string',
+		routing: {
+			request: {
+				qs: {
+					name: '={{ $value }}',
+				},
+			},
+		},
+		displayOptions: {
+			show: {
+				resource: ['Datasets'],
+				operation: ['Create dataset'],
+			},
+		},
+	},
+];

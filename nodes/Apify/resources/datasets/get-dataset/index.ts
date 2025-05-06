@@ -13,30 +13,30 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodePropertyOptions } from 'n8n-workflow'
+import { INodePropertyOptions } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
-import { properties as rawProperties } from './properties'
-import { runHooks } from './hooks'
+import { properties as rawProperties } from './properties';
+import { runHooks } from './hooks';
 
-export const name = 'Get dataset'
+export const name = 'Get dataset';
 
 const rawOption: INodePropertyOptions = {
-  name: 'Get dataset',
-  value: 'Get dataset',
-  action: 'Get dataset',
-  description:
-    'Returns dataset object for given dataset ID  NOTE  Keep in mind that attributes itemCount and cleanItemCount are not propagated right away after data are pushed into a dataset  There is a short period  up to 5 seconds  during which these counters may not match with exact counts in dataset items',
-  routing: {
-    request: {
-      method: 'GET',
-      url: '=/v2/datasets/{{$parameter["datasetId"]}}',
-    },
-  },
-}
+	name: 'Get Dataset',
+	value: 'Get dataset',
+	action: 'Get dataset',
+	description:
+		'Returns dataset object for given dataset ID NOTE Keep in mind that attributes itemCount and cleanItemCount are not propagated right away after data are pushed into a dataset There is a short period up to 5 seconds during which these counters may not match with exact counts in dataset items',
+	routing: {
+		request: {
+			method: 'GET',
+			url: '=/v2/datasets/{{$parameter["datasetId"]}}',
+		},
+	},
+};
 
-const { properties, option } = runHooks(rawOption, rawProperties)
+const { properties, option } = runHooks(rawOption, rawProperties);
 
-export { option, properties }
+export { option, properties };

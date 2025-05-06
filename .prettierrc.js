@@ -22,7 +22,7 @@ module.exports = {
 	/**
 	 * https://prettier.io/docs/en/options.html#tab-width
 	 */
-	tabWidth: 2,
+	tabWidth: 6,
 
 	/**
 	 * https://prettier.io/docs/en/options.html#arrow-function-parentheses
@@ -37,7 +37,7 @@ module.exports = {
 	/**
 	 * https://prettier.io/docs/en/options.html#quote-props
 	 */
-	quoteProps: 'as-needed',
+	quoteProps: 'preserve',
 
 	/**
 	 * https://prettier.io/docs/en/options.html#end-of-line

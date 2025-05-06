@@ -13,30 +13,30 @@
  * Repository: https://github.com/oneflow-vn/create-n8n-nodes
  */
 
-import { INodePropertyOptions } from 'n8n-workflow'
+import { INodePropertyOptions } from 'n8n-workflow';
 
 // @ts-ignore
-import * as helpers from '../../../helpers'
+import * as helpers from '../../../helpers';
 
-import { properties as rawProperties } from './properties'
-import { runHooks } from './hooks'
+import { properties as rawProperties } from './properties';
+import { runHooks } from './hooks';
 
-export const name = 'Get last run'
+export const name = 'Get last run';
 
 const rawOption: INodePropertyOptions = {
-  name: 'Get last run',
-  value: 'Get last run',
-  action: 'Get last run',
-  description:
-    'This is not a single endpoint  but an entire group of endpoints that lets you to retrieve and manage the last run of given Actor or any of its default storages',
-  routing: {
-    request: {
-      method: 'GET',
-      url: '=/v2/acts/{{$parameter["actorId"]}}/runs/last',
-    },
-  },
-}
+	name: 'Get Last Run',
+	value: 'Get last run',
+	action: 'Get last run',
+	description:
+		'This is not a single endpoint but an entire group of endpoints that lets you to retrieve and manage the last run of given Actor or any of its default storages',
+	routing: {
+		request: {
+			method: 'GET',
+			url: '=/v2/acts/{{$parameter["actorId"]}}/runs/last',
+		},
+	},
+};
 
-const { properties, option } = runHooks(rawOption, rawProperties)
+const { properties, option } = runHooks(rawOption, rawProperties);
 
-export { option, properties }
+export { option, properties };

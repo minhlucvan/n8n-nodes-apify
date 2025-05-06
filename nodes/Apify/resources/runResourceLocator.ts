@@ -1,63 +1,63 @@
 import { INodeProperties, ILoadOptionsFunctions, INodeListSearchResult } from 'n8n-workflow';
 import { apiRequestAllItems } from './genericFunctions';
 
-
 const resourceLocatorProperty: INodeProperties = {
-		displayName: 'Run ID',
-		name: 'runId',
-    type: 'resourceLocator',
-    default: { mode: 'list', value: '' },
-    modes: [
-        {
-            displayName: 'From List',
-            name: 'list',
-            type: 'list',
-            placeholder: 'Choose...',
-            typeOptions: {
-                searchListMethod: 'listRuns',
-                searchFilterRequired: false,
-                searchable: false,
-            },
-        },
-        {
-            displayName: 'By URL',
-            name: 'url',
-            type: 'string',
+	displayName: 'Run ID',
+	name: 'runId',
+	type: 'resourceLocator',
+	default: { mode: 'list', value: '' },
+	modes: [
+		{
+			displayName: 'From List',
+			name: 'list',
+			type: 'list',
+			placeholder: 'Choose...',
+			typeOptions: {
+				searchListMethod: 'listRuns',
+				searchFilterRequired: false,
+				searchable: false,
+			},
+		},
+		{
+			displayName: 'By URL',
+			name: 'url',
+			type: 'string',
+			// https://console.apify.com/actors/AtBpiepuIUNs2k2ku/runs/RDfcScrqIYHW0jfNF#log
+			placeholder:
+				'https://console.apify.com/actors/AtBpiepuIUNs2k2ku/runs/RDfcScrqIYHW0jfNF#log',
+			validation: [
+				{
+					type: 'regex',
+					properties: {
 						// https://console.apify.com/actors/AtBpiepuIUNs2k2ku/runs/RDfcScrqIYHW0jfNF#log
-						placeholder: 'https://console.apify.com/actors/AtBpiepuIUNs2k2ku/runs/RDfcScrqIYHW0jfNF#log',
-            validation: [
-                {
-                    type: 'regex',
-                    properties: {
-												// https://console.apify.com/actors/AtBpiepuIUNs2k2ku/runs/RDfcScrqIYHW0jfNF#log
-                        regex: 'https://console.apify.com/actors/([a-zA-Z0-9]+)/runs/([a-zA-Z0-9]+)',
-                        errorMessage: 'Not a valid Apify Actor Run URL',
-                    },
-                },
-            ],
-            extractValue: {
-                type: 'regex',
-								// https://console.apify.com/actors/AtBpiepuIUNs2k2ku/runs/RDfcScrqIYHW0jfNF#log -> RDfcScrqIYHW0jfNF
-								regex: 'https://console.apify.com/actors/([a-zA-Z0-9]+)/runs/([a-zA-Z0-9]+)',
-            },
-        },
-        {
-            displayName: 'ID',
-            name: 'id',
-            type: 'string',
-            validation: [
-                {
-                    type: 'regex',
-                    properties: {
-                        regex: '[a-zA-Z0-9]+',
-                        errorMessage: 'Not a valid Apify Actor Run ID',
-                    },
-                },
-            ],
-            placeholder: 'WAtmhr6rhfBnwqKDY',
-						url: '=http:/console.apify.com/actors/{{ $value }}/runs/{{ $value }}#log',
-        },
-    ],
+						regex: 'https://console.apify.com/actors/([a-zA-Z0-9]+)/runs/([a-zA-Z0-9]+)',
+						errorMessage: 'Not a valid Apify Actor Run URL',
+					},
+				},
+			],
+			extractValue: {
+				type: 'regex',
+				// https://console.apify.com/actors/AtBpiepuIUNs2k2ku/runs/RDfcScrqIYHW0jfNF#log -> RDfcScrqIYHW0jfNF
+				regex: 'https://console.apify.com/actors/([a-zA-Z0-9]+)/runs/([a-zA-Z0-9]+)',
+			},
+		},
+		{
+			displayName: 'ID',
+			name: 'id',
+			type: 'string',
+			validation: [
+				{
+					type: 'regex',
+					properties: {
+						regex: '[a-zA-Z0-9]+',
+						errorMessage: 'Not a valid Apify Actor Run ID',
+					},
+				},
+			],
+			placeholder: 'WAtmhr6rhfBnwqKDY',
+			url: '=http:/console.apify.com/actors/{{ $value }}/runs/{{ $value }}#log',
+		},
+	],
 };
 
 function mapProperty(property: INodeProperties) {
@@ -79,7 +79,6 @@ export async function listRuns(
 	this: ILoadOptionsFunctions,
 	query?: string,
 ): Promise<INodeListSearchResult> {
-
 	const actorIdParam = this.getNodeParameter('actorId', null) as { value: string };
 	const actorTaskIdParam = this.getNodeParameter('actorTaskId', null) as { value: string };
 
@@ -98,13 +97,12 @@ export async function listRuns(
 		this,
 		'GET',
 		path,
-		{
-		},
+		{},
 		{
 			qs: {
 				limit: 100,
 				offset: 0,
-			}
+			},
 		},
 	);
 
